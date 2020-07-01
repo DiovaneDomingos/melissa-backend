@@ -16,22 +16,18 @@ async function createSession(assistant) {
 }
 
 async function createMessage(assistant, sessionId, message) {
-	
-	console.log(sessionId)
-	assistant.message({
+	const res = await assistant.message({
 		assistantId: assistantId,
 		sessionId: sessionId,
 		input: {
 			'message_type': 'text',
 			'text': message
-			}
-		})
-		.then(res => {
-			console.log(JSON.stringify(res.result, null, 2));
-		})
-		.catch(err => {
-			console.log(err);
-		});
+		}
+	})
+
+	const resp = res.result.output.generic[0].text
+
+	return resp
 }
 
 async function main() {
@@ -47,8 +43,10 @@ async function main() {
 
 	let message = 'Olá'
 
-	return createMessage(assistant, sessionId, message)
-
+	a = await createMessage(assistant, sessionId, message)
+	
+	console.log(a)
+	return await a
 }
 
-main()
+return main()
