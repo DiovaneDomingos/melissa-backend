@@ -46,7 +46,9 @@ async function main() {
 	a = await createMessage(assistant, sessionId, message)
 	
 	console.log(a)
-	return await a
+	return a
 }
 
-return main()
+la = main()
+
+return la
