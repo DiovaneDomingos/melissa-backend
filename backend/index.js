@@ -1,55 +1,14 @@
-const AssistantV2 = require('ibm-watson/assistant/v2');
-const { IamAuthenticator } = require('ibm-watson/auth');
+const express = require('express')
+const routes = require('./src/routes.js')
 
-const apikey = '3qI92Thmokq7vhW9Ok7G2U95pm98hoecBEyb-2d9-pmr';
-const url = 'https://api.us-south.assistant.watson.cloud.ibm.com/instances/0943ab5f-db89-4893-8670-04e8c02e9759';
-const assistantId = '615c548a-a7c9-49c6-a794-4d8fff6afa89';
+const port = 3000
 
-async function main() {
-	const assistant = new AssistantV2({
-		version: '2020-04-01',
-		authenticator: new IamAuthenticator({
-			apikey,
-		}),
-		url,
-	});
+const app = express()
 
-	const sessionId = await createSession(assistant)
+app.use(express.json())
 
-	let message = 'Olá'
+app.use('/', routes)
 
-	createMessage(assistant, sessionId, message)
-
-}
-
-main()
-
-
-async function createSession(assistant) {
-	let res = await assistant.createSession({
-		assistantId
-	})
-
-	let session_id = res.result.session_id
-
-	return session_id
-}
-
-async function createMessage(assistant, sessionId, message) {
-	
-	console.log(sessionId)
-	assistant.message({
-		assistantId: assistantId,
-		sessionId: sessionId,
-		input: {
-			'message_type': 'text',
-			'text': message
-			}
-		})
-		.then(res => {
-			console.log(JSON.stringify(res.result, null, 2));
-		})
-		.catch(err => {
-			console.log(err);
-		});
-}
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`)
+})
