@@ -3,7 +3,6 @@ class MessageController {
 		const msg = req.body.message
 
 		if (msg == 'Fazer reclamação') {
-
 			return res.json({
 				answer: "Muito bem. Por favor selecione o tipo da sua reclamação.",
 				options: ["Problema na entrega", "Problema com o produto"]
@@ -11,7 +10,6 @@ class MessageController {
 		}
 
 		if (msg == "Problema com o produto") {
-
 			return res.json({
 				answer: "Escolha mais especificamente o problema que você teve com seu produto.",
 				options: ['Recebi o produto errado', 'O produto veio com defeito']
@@ -24,8 +22,7 @@ class MessageController {
 			})
 		}
 
-		return res.json({error: "pergunta não encontrada"})
-
+		return res.json({ error: "pergunta não encontrada" })
 	}
 }
 
