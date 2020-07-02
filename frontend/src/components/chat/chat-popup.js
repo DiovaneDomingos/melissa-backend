@@ -16,11 +16,18 @@ export default class ChatPopup extends Component {
         display: "none",
       },
     };
-
-    this.handleClick = this.handleClick.bind(this);
+    this.handlePopoutClick = this.handlePopoutClick.bind(this);
   }
 
-  handleClick() {
+  componentDidMount() {
+    const messageList = document.getElementById("message-list");
+    const welcomeMessage = `<div id="user-message">
+    Oi! Bem vindo ao Mercado Livre. Meu nome é Melissa, e tô aqui pra te ajudar. Em que posso ser útil?
+    </div>`;
+    messageList.innerHTML = welcomeMessage;
+  }
+
+  handlePopoutClick() {
     const icon = document.getElementById("chat-icon");
     if (this.state.style.display === "none") {
       this.setState({
@@ -39,10 +46,23 @@ export default class ChatPopup extends Component {
     }
   }
 
+  /* TODO */
+  // handleMessage() {
+  //   var messages = [];
+  //   const input = document.getElementById("message-input");
+  //   const messageList = document.getElementById("message-list");
+
+  //   var message = input.value;
+  //   var userMessage = `<div id="user-message">${message}</div>`;
+  //   messages.push(userMessage);
+  //   console.log(messages);
+  //   messageList.innerHTML = messages;
+  // }
+
   renderChat = () => {
     return (
       <div className="chat">
-        <div className="button-container" onClick={this.handleClick}>
+        <div className="button-container" onClick={this.handlePopoutClick}>
           <img id="chat-icon" src={chat} alt="Chat icon" />
         </div>
         <div className="container" style={this.state.style}>
@@ -52,15 +72,18 @@ export default class ChatPopup extends Component {
               <span>Melissa</span>
             </div>
           </header>
-          <div className="message-list"></div>
+          <div id="message-list"></div>
           <footer>
             <InputGroup className="message-box">
               <FormControl
-                className="message-input"
+                id="message-input"
                 placeholder="Digite algo..."
                 aria-label="Message"
               />
-              <img src={send} alt="Send button" />
+              <img
+                src={send}
+                alt="Send button" /*onClick={this.handleMessage}*/
+              />
             </InputGroup>
           </footer>
         </div>

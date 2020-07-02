@@ -21,7 +21,8 @@ body {
   padding: 0;
   border-radius: 10px;
   width: 300px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  background-color: rgb(240, 240, 240);
 }
 
 #chat-header {
@@ -50,11 +51,10 @@ body {
   bottom: 20px;
 }
 
-.message-list {
-  display: block;
+#message-list {
+  display: flex;
   height: 300px;
   margin: 10px;
-  background-color: inherit;
 }
 
 .message-box {
@@ -66,9 +66,9 @@ body {
   align-items: center;
 }
 
-.message-input {
+#message-input {
   border: none;
-  background-color: rgb(220, 220, 220);
+  background-color: inherit;
   outline: none;
   width: 100%;
   overflow-y: hidden;
@@ -93,14 +93,24 @@ body {
   border-radius: 5px;
   z-index: 100;
   float: right;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
   right: 30px;
   text-align: center;
 }
 
 .button-container img {
-  padding: 5px;
-  height: 20px;
-  width: 20px;
+  padding: 8px;
+  height: 15px;
+  width: 15px;
   cursor: pointer;
+}
+
+#user-message {
+  background-color: #fff159;
+  height: fit-content;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10px 10px 10px 0px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  align-self: flex-end;
 }
