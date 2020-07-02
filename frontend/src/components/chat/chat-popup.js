@@ -15,16 +15,23 @@ export default class ChatPopup extends Component {
       style: {
         display: "none",
       },
+      messageList: [],
+      optionsList: [],
     };
     this.handlePopoutClick = this.handlePopoutClick.bind(this);
   }
 
   componentDidMount() {
+    this.welcomeMessage();
+  }
+
+  welcomeMessage() {
     const messageList = document.getElementById("message-list");
-    const welcomeMessage = `<div id="user-message">
-    Oi! Bem vindo ao Mercado Livre. Meu nome é Melissa, e tô aqui pra te ajudar. Em que posso ser útil?
+    const welcomeMessage = `<div id="server-message">
+    Oi! Bem vindo(a) ao Mercado Livre. Meu nome é Melissa, e tô aqui pra te ajudar. Em que posso ser útil?
     </div>`;
-    messageList.innerHTML = welcomeMessage;
+    this.state.messageList.push(welcomeMessage);
+    messageList.innerHTML = this.state.messageList[0];
   }
 
   handlePopoutClick() {
@@ -46,18 +53,22 @@ export default class ChatPopup extends Component {
     }
   }
 
-  /* TODO */
-  // handleMessage() {
-  //   var messages = [];
-  //   const input = document.getElementById("message-input");
-  //   const messageList = document.getElementById("message-list");
+  /* NEED FIX */
+  handleMessage = () => {
+    const input = document.getElementById("message-input");
+    const messages = document.getElementById("message-list");
 
-  //   var message = input.value;
-  //   var userMessage = `<div id="user-message">${message}</div>`;
-  //   messages.push(userMessage);
-  //   console.log(messages);
-  //   messageList.innerHTML = messages;
-  // }
+    var message = input.value;
+    if (message === "null" || message === "") {
+      return;
+    } else {
+      var userMessage = `<div id="user-message">${message}</div>`;
+      this.state.messageList.concat(userMessage);
+      messages.appendChild(userMessage);
+      input.value = "";
+    }
+    console.log(userMessage);
+  };
 
   renderChat = () => {
     return (
@@ -80,10 +91,7 @@ export default class ChatPopup extends Component {
                 placeholder="Digite algo..."
                 aria-label="Message"
               />
-              <img
-                src={send}
-                alt="Send button" /*onClick={this.handleMessage}*/
-              />
+              <img src={send} alt="Send button" onClick={this.handleMessage} />
             </InputGroup>
           </footer>
         </div>
