@@ -1,6 +1,6 @@
 import React from "react";
 
-import ChatPopup from "./components/chat-popup";
+import ChatPopup from "./components/chat/chat-popup";
 
 const App = () => {
   return <ChatPopup />;
