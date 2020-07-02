@@ -1,5 +1,5 @@
 class MessageController {
-	async store(req, res) {
+	async client(req, res) {
 		const msg = req.body.message
 
 		if (msg == 'Fazer reclamação') {
@@ -23,6 +23,38 @@ class MessageController {
 		}
 
 		return res.json({ error: "pergunta não encontrada" })
+	}
+
+	async store(req, res) {
+		const msg = req.body.message;
+
+		if(msg == "começar conversar") {
+			return res.json({
+				answer: 'Melissa: Olá! Seja bem vindo ao Mercado Livre. Eu sou a Melissa, e estou aqui para lhe auxiliar. Em que posso ser útil?',
+				options: ['Consultar rastreio de uma venda', 'Desistir da venda']
+			})
+		}
+
+		if (msg == 'Desistir da venda') {
+			return res.json({
+				answer: 'Beleza! Por favor, me diga o motivo pelo qual você está cancelando a venda',
+				options: ['Problema com o produto', 'Problema com o comprador']
+			})
+		}
+
+		if (msg == 'Problema com o produto') {
+			return res.json({
+				answer: 'Escolha mais especificamente o problema que você teve com seu produto',
+				options: ['O produto foi roubado', 'O produto foi danificado']
+			})
+		}
+		if (msg == 'O produto foi roubado ') {
+			return res.json({
+				answer: 'Sinto muito, iremos remover seu anúncio e colocar uma nota para o cliente. Você ainda poderá ser avaliado pelo anúncio. Muito obrigado!'
+			})
+		}
+
+		r
 	}
 }
 
