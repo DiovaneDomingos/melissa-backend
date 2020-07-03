@@ -2,14 +2,14 @@ class MessageController {
   async client(req, res) {
     const msg = req.body.message;
 
-    if (msg == "Fazer reclamação") {
+    if (msg === "Fazer reclamação") {
       return res.json({
         answer: "Muito bem. Por favor selecione o tipo da sua reclamação.",
         options: ["Problema na entrega", "Problema com o produto"],
       });
     }
 
-    if (msg == "Problema com o produto") {
+    if (msg === "Problema com o produto") {
       return res.json({
         answer:
           "Escolha mais especificamente o problema que você teve com seu produto.",
@@ -17,7 +17,7 @@ class MessageController {
       });
     }
 
-    if (msg == "Recebi o produto errado") {
+    if (msg === "Recebi o produto errado") {
       return res.json({
         answer:
           "Sinto muito, iremos lhe conectar com o vendedor para solucionar seu problema. Caso não haja resposta, volte a entrar em contato comigo e buscarem uma solução juntinhos.",
@@ -30,7 +30,7 @@ class MessageController {
   async store(req, res) {
     const msg = req.body.message;
 
-    if (msg == "Começar conversar") {
+    if (msg === "Começar conversar") {
       return res.json({
         answer:
           "Melissa: Oi! Bem vindo ao Mercado Livre. Meu nome é Melissa, e tô aqui pra te ajudar. Em que posso ser útil?",
@@ -38,7 +38,7 @@ class MessageController {
       });
     }
 
-    if (msg == "Desistir da venda") {
+    if (msg === "Desistir da venda") {
       return res.json({
         answer:
           "Beleza! Por favor, me diga o motivo pelo qual você está cancelando a venda",
@@ -46,21 +46,19 @@ class MessageController {
       });
     }
 
-    if (msg == "Problema com o produto") {
+    if (msg === "Problema com o produto") {
       return res.json({
         answer:
           "Escolha mais especificamente o problema que você teve com seu produto",
         options: ["O produto foi roubado", "O produto foi danificado"],
       });
     }
-    if (msg == "O produto foi roubado ") {
+    if (msg === "O produto foi roubado ") {
       return res.json({
         answer:
           "Sinto muito, iremos remover seu anúncio e colocar uma nota para o cliente. Você ainda poderá ser avaliado pelo anúncio. Muito obrigado!",
       });
     }
-
-    r;
   }
 }
 
