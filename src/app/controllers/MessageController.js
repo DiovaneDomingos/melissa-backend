@@ -24,7 +24,7 @@ class MessageController {
       });
     }
 
-    return res.json({ error: "pergunta não encontrada" });
+    return res.status(404).json({ error: "pergunta não encontrada" });
   }
 
   async store(req, res) {
@@ -53,12 +53,15 @@ class MessageController {
         options: ["O produto foi roubado", "O produto foi danificado"],
       });
     }
+
     if (msg === "O produto foi roubado ") {
       return res.json({
         answer:
           "Sinto muito, iremos remover seu anúncio e colocar uma nota para o cliente. Você ainda poderá ser avaliado pelo anúncio. Muito obrigado!",
       });
     }
+
+    return res.status(404).json({ error: "pergunta não encontrada" });
   }
 }
 
