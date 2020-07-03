@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = require('./src/routes.js')
 
-const port = 8080
+const port = 80
 
 const app = express()
 
