@@ -63,6 +63,39 @@ class MessageController {
 
     return res.status(404).json({ error: "pergunta não encontrada" });
   }
+
+  async tracking(req, res) {
+    const msg = req.body.message;
+
+    if(msg === 'Começar conversar') {
+      return res.json({
+        answer: 'Olá, Mega Hack 3.0! Bem vindo ao Mercado Livre. Meu nome é Melissa e to aqui para te ajudar. Em que posso ser útil?',
+        options: ['rastrear meu pedido', 'tirar duvidas', 'fazer compras']
+      })
+    }
+
+    if(msg === 'rastrear meu pedido') {
+      return res.json({
+        answer: 'Opa! Vou te dizer exatamente onde o seu pedido está! Por favor, digite o código de rastreio do seu pedido. '
+      })
+    }
+
+    if(msg == '171717') {
+      return res.json({
+        answer: 'Pronto! O seu pedido está na Av. Mega Hack, nº 3.0 no bairro Dezessete.',
+        map: '[foto do mapa]',
+        answer2: 'Você poderia dar uma nota para o meu atendimento? Estou trabalhando para te atender cada vez melhor.',
+        notas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      })
+    }
+
+    if(msg === 'nota 10') {
+      return res.json({
+        answer: 'Obrigado pelo feedback, estou sempre a disposição'
+      })
+    }
+  }
+
 }
 
 module.exports = new MessageController();
