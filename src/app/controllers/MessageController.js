@@ -20,7 +20,7 @@ class MessageController {
     if (msg === "Recebi o produto errado") {
       return res.json({
         answer:
-          "Sinto muito, iremos lhe conectar com o vendedor para solucionar seu problema. Caso não haja resposta, volte a entrar em contato comigo e buscarem uma solução juntinhos.",
+          "Sinto muito, iremos lhe conectar com o vendedor para solucionar seu problema. Caso não haja resposta, volte a entrar em contato comigo e buscaremos uma solução juntinhos.",
       });
     }
 
