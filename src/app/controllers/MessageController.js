@@ -31,7 +31,7 @@ class MessageController {
       })
     }
 
-    if(msg === 'rastrear meu pedido') {
+    if(msg === 'Rastrear meu pedido') {
       return res.json({
         answer: 'Opa! Vou te dizer exatamente onde o seu pedido está! Por favor, digite o código de rastreio do seu pedido. '
       })
@@ -51,7 +51,7 @@ class MessageController {
       })
     }
 
-    if(msg === 'nota 10') {
+    if(msg === 'Nota 10') {
       return res.json({
         answer: 'Obrigado pelo feedback, estou sempre a disposição'
       })
