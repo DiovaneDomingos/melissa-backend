@@ -20,7 +20,7 @@ class MessageController {
     if (msg === "Recebi o produto errado") {
       return res.json({
         answer:
-          "Sinto muito, iremos lhe conectar com o vendedor para solucionar seu problema. Caso não haja resposta, volte a entrar em contato comigo e buscarem uma solução juntinhos.",
+          "Sinto muito, iremos lhe conectar com o vendedor para solucionar seu problema. Caso não haja resposta, volte a entrar em contato comigo e buscaremos uma solução juntinhos.",
       });
     }
 
@@ -40,7 +40,7 @@ class MessageController {
     if(msg == '171717') {
       return res.json({
         answer: 'Pronto! O seu pedido está na Av. Mega Hack, nº 3.0 no bairro Dezessete.',
-        map: '[foto do mapa]',
+        map: 'https://i.imgur.com/dUalQ8q.png',
         answer2: 'Você poderia dar uma nota para o meu atendimento? Estou trabalhando para te atender cada vez melhor.',
         notas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       })
