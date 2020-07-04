@@ -41,7 +41,12 @@ class MessageController {
       return res.json({
         answer: 'Pronto! O seu pedido está na Av. Mega Hack, nº 3.0 no bairro Dezessete.',
         map: 'https://i.imgur.com/dUalQ8q.png',
-        answer2: 'Você poderia dar uma nota para o meu atendimento? Estou trabalhando para te atender cada vez melhor.',
+      })
+    }
+
+    if(msg === 'Obrigado') {
+      return res.json({
+        answer: 'Você poderia dar uma nota para o meu atendimento? Estou trabalhando para te atender cada vez melhor.',
         notas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       })
     }
